@@ -19,7 +19,6 @@ public class ContactServiceImpl implements ContactService {
 	public boolean saveContact(Contact contact) {
 		Contact savedObj = contactRepo.save(contact);
 		return savedObj.getContactId() !=null;
-		return false;
 	}
 
 	@Override
@@ -38,14 +37,25 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public boolean updateContact(Contact contact) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Contact save = contactRepo.save(contact);
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return true;	
+		}
 	}
 
 	@Override
 	public boolean deleteContactById(Integer contactId) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			contactRepo.deleteById(contactId);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+			
 	}
 
 }
