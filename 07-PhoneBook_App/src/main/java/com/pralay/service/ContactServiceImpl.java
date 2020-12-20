@@ -19,12 +19,13 @@ public class ContactServiceImpl implements ContactService {
 	public boolean saveContact(Contact contact) {
 		contact.setActiveSw("y");
 		Contact savedObj = contactRepo.save(contact);
+		
 		return savedObj.getContactId() !=null;
 	}
 
 	@Override
 	public List<Contact> getAllContacts() {
-		return contactRepo.findAll();
+		return contactRepo.findByActiveSw("y");
 	}
 
 	@Override
@@ -50,7 +51,9 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public boolean deleteContactById(Integer contactId) {
 		try {
-			contactRepo.deleteById(contactId);
+			Contact contact = contactRepo.findById(contactId).get();
+			contact.setActiveSw("N");
+			contactRepo.save(contact);
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
