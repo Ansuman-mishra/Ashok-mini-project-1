@@ -14,9 +14,10 @@
 	<h4>Save Contact</h4>
 	${succMsg} ${errMsg}
 
-<form:form action="saveContact" method="POST" modelAttribute="contact">
+<form:form action="saveContact?contactId=${contact.contactId}" method="POST" modelAttribute="contact">
       <table>
             <tr>
+            	<form:hidden path="contactId"/>
                   <td>Contact Name</td>
                   <td><form:input path="contactName"/></td>
             </tr>
@@ -30,7 +31,7 @@
             </tr>
             <tr>
                   <td></td>
-                  <td><input type="submit" value="Save Contact"/></td>
+                  <td><input type="submit" value="Submit"/></td>
             </tr>
       </table>
 			<a href="viewContacts">View All Contacts</a>

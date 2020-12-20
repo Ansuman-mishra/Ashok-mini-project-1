@@ -17,6 +17,7 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public boolean saveContact(Contact contact) {
+		contact.setActiveSw("y");
 		Contact savedObj = contactRepo.save(contact);
 		return savedObj.getContactId() !=null;
 	}
