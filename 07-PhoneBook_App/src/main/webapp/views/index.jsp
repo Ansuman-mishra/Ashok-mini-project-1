@@ -20,13 +20,15 @@
 <style type="text/css">
 	.bg{
 		background-color: #7CFC00;
+		border-radius: 20px;
+		text-align: justify;
 	}
 	
 	.width{
 		width:100%	
 	}
 	
-	.container{
+	.container1{
 		position: relative;
 		
 	}
@@ -35,9 +37,16 @@
 		left: 50%;
 		top:50%;
 		transform: translate(-50%,-50%);
+		
+		width: 50%;
+		height: 50%;
 	}
 	
 	button {
+	margin-top: 20px;
+}
+
+.btnd{
 	margin-top: 20px;
 }
 	
@@ -54,31 +63,37 @@
 			</div>
 			<div class="form-group">
 				<form:form action="saveContact?contactId=${contact.contactId}" method="POST" modelAttribute="contact">
-		<div class="container">		
+		<div class="container1">		
 			<div class="row">
 					<form:hidden path="contactId"/>
-					<label>Contact Name</label>
+					<label class="font-weight-bold">Contact Name</label>
 					<div class="input-group width">
-                          <form:input class="form-control" path="contactName"/>  
+                          <form:input class="form-control shadow-sm" path="contactName"/>  
                     </div>
 			</div>
 			<div class="row">
-					<form:hidden path="contactId"/>
-					<label>Contact Number</label>
+					
+					<label class="font-weight-bold" >Contact Number</label>
 					<div class="input-group width">
-                          <form:input class="form-control" path="contactNumber"/> 
+                          <form:input class="form-control shadow-sm" path="contactNumber"/> 
                     </div>
 			</div>
 			<div class="row">
-					<form:hidden path="contactId"/>
-					<label>Contact Email</label>
+					
+					<label class="font-weight-bold">Contact Email</label>
 					<div class="input-group width">
-                          <form:input class="form-control" path="contactEmail"/>
+                          <form:input class="form-control shadow-sm" path="contactEmail"/>
+                    </div>
+			</div>
+			<div class="row">
+					
+					<div class="input-group width">
+                          <input class="btn btn-primary btn-block btnd shadow" type="submit" value="Submit"/>
                     </div>
 			</div>
 			</div>
 		<div>
-		<button class="btn btn-danger btn-block"><a href="viewContacts">View All Contacts</a></button>
+		<button class="btn btn-danger btn-block"><a href="viewContacts"></a>View All Contacts</button>
 		</div>
 	</form:form>
 			

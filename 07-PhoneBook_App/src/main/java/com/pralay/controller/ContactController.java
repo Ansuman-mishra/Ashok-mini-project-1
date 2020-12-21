@@ -61,13 +61,13 @@ public class ContactController {
 	@GetMapping("/viewContacts")
 	public String handleViewContactsHyperlink(Model model) {
 		List<Contact> contactsList = contactService.getAllContacts();
-		System.out.println("-----------------------------"+contactsList.toString());
+//		System.out.println("-----------------------------"+contactsList.toString());
 		model.addAttribute("contacts", contactsList);
 		return "viewContacts";
 	}
 	
 	@GetMapping("/edit")
-	public String handleEditClick(@RequestParam("cid") Integer cid, Model model) {
+	public String handleEditClick(@RequestParam("CONTACT_ID") Integer cid, Model model) {
 		Contact contactObj = contactService.getContactById(cid);
 		
 		model.addAttribute("contact", contactObj);
@@ -76,7 +76,7 @@ public class ContactController {
 	}
 	
 	@GetMapping("/delete")
-	public String handleDeleteClick(@RequestParam("cid") Integer cid) {
+	public String handleDeleteClick(@RequestParam("CONTACT_ID") Integer cid) {
 		
 		contactService.deleteContactById(cid);
 		

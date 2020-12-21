@@ -12,4 +12,6 @@ public class AppConstants {
 	public static final String ERROR_MSG = "errMsg";
 	
 	public static final String INDEX_VIEW = "index";
+	
+	public static final String CONTACT_ID ="cid";
 }
