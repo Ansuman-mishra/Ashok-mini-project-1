@@ -42,7 +42,7 @@
 		height: 50%;
 	}
 	
-	button {
+	.btn1 {
 	margin-top: 20px;
 }
 
@@ -93,7 +93,7 @@
 			</div>
 			</div>
 		<div>
-		<button class="btn btn-danger btn-block"><a href="viewContacts"></a>View All Contacts</button>
+		<a class="btn btn-danger btn-block btn1 shadow" href="viewContacts">View All Contacts</a>
 		</div>
 	</form:form>
 			

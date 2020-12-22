@@ -17,7 +17,7 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public boolean saveContact(Contact contact) {
-		contact.setActiveSw("y");
+		contact.setActiveSw("Active");
 		Contact savedObj = contactRepo.save(contact);
 		
 		return savedObj.getContactId() !=null;
@@ -25,7 +25,7 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public List<Contact> getAllContacts() {
-		return contactRepo.findByActiveSw("y");
+		return contactRepo.findByActiveSw("Active");
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ContactServiceImpl implements ContactService {
 	public boolean deleteContactById(Integer contactId) {
 		try {
 			Contact contact = contactRepo.findById(contactId).get();
-			contact.setActiveSw("N");
+			contact.setActiveSw("Inactive");
 			contactRepo.save(contact);
 			return true;
 		}catch(Exception e) {

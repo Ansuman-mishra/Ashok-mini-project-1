@@ -67,7 +67,7 @@ public class ContactController {
 	}
 	
 	@GetMapping("/edit")
-	public String handleEditClick(@RequestParam("CONTACT_ID") Integer cid, Model model) {
+	public String handleEditClick(@RequestParam("cid") Integer cid, Model model) {
 		Contact contactObj = contactService.getContactById(cid);
 		
 		model.addAttribute("contact", contactObj);
@@ -76,7 +76,7 @@ public class ContactController {
 	}
 	
 	@GetMapping("/delete")
-	public String handleDeleteClick(@RequestParam("CONTACT_ID") Integer cid) {
+	public String handleDeleteClick(@RequestParam("cid") Integer cid) {
 		
 		contactService.deleteContactById(cid);
 		
